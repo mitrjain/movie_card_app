@@ -1,8 +1,15 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import MovieCard from './MovieCard';
+import SearchIcon from './search.svg';
+import './App.css';
+// require('dotenv').config();
 
-const API_KEY = process.env.OMDB_API_KEY;
+ 
+// const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
+// const OMDB_API_URL=`http://www.omdbapi.com/?apikey=${API_KEY}`;
+
+// const API_KEY="c71a9647";
 const OMDB_API_URL=`http://www.omdbapi.com/?apikey=${API_KEY}`;
 
 
@@ -12,14 +19,17 @@ const App = ()=>{
     const [searchParam, setSearchParam ] = useState("");
 
     const searchMovies = async (param) =>{
-        const response = await fetch(`${OMDB_API_URL}&s=${param}`);
-        const data = response.json;
+        const URL=`${OMDB_API_URL}&s=${param}`;
+        console.log(URL)
+        
+        const response = await fetch(URL);
+        const data = await response.json();
         setMovies(data.Search);
     }
 
     useEffect(()=>{
-        searchMovies("");
-    })
+        searchMovies(""); 
+    },[])
     return (
         <div className="app">
             <h1>MovieMania</h1>

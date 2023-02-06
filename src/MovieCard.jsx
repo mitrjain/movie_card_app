@@ -1,4 +1,4 @@
-import React from 'reaact';
+import React from 'react';
 
 const MovieCard = ({movie})=>{
     return (
