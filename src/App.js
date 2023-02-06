@@ -9,7 +9,6 @@ import './App.css';
 // const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 // const OMDB_API_URL=`http://www.omdbapi.com/?apikey=${API_KEY}`;
 
-// const API_KEY="c71a9647";
 const OMDB_API_URL=`http://www.omdbapi.com/?apikey=${API_KEY}`;
 
 
@@ -20,7 +19,6 @@ const App = ()=>{
 
     const searchMovies = async (param) =>{
         const URL=`${OMDB_API_URL}&s=${param}`;
-        console.log(URL)
         
         const response = await fetch(URL);
         const data = await response.json();
